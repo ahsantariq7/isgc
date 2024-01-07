@@ -55,7 +55,10 @@
 
 Grading Scale we Use For Calculation official IUB :
 
-grading_scale = {
+<div>
+    <pre>
+        <code class="json">
+        grading_scale = {
         100: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
         99: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
         98: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
@@ -108,5 +111,9 @@ grading_scale = {
         51: {'grade_point': 1.1, 'remark': 'D Poor'},
         50: {'grade_point': 1.0, 'remark': 'D Poor'},
         49: {'grade_point': 0.0, 'remark': 'F Fail'}
+        }
 
-}
+
+        </code>
+    </pre>
+</div>
