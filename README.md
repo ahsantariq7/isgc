@@ -39,7 +39,6 @@
 }
         </code>
     </pre>
-    <button onclick="copyText('semesters')">Copy</button>
 </div>
 
 
