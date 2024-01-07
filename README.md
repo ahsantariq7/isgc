@@ -156,3 +156,49 @@ FUNCTION calculate_gpa(semesters)
 
     RETURN cgpa rounded to 2 decimal places
 ```
+
+Certainly! Here's the algorithm described in a more mathematical form using Markdown:
+
+### Algorithm Steps
+
+1. **Calculate Semester GPA (SGPA):**
+
+   \[
+   SGPA_{s} = \frac{\sum_{i=1}^{n} (G_{i} \times CH_{i})}{\sum_{i=1}^{n} CH_{i}}
+   \]
+
+   - \( SGPA_{s} \): Semester Grade Point Average for a particular semester \( s \).
+   - \( G_{i} \): Grade point obtained for a subject \( i \).
+   - \( CH_{i} \): Credit hours for a subject \( i \).
+   - \( n \): Number of subjects in the semester.
+
+2. **Calculate Cumulative Grade Point Average (CGPA):**
+
+   \[
+   CGPA = \frac{\sum_{s \in S} (SGPA_{s} \times CH_{s})}{\sum_{s \in S} CH_{s}}
+   \]
+
+   - \( CGPA \): Cumulative Grade Point Average.
+   - \( CH_{s} \): Total credit hours for a semester \( s \).
+   - \( S \): Set of all semesters.
+
+3. **Subject Evaluation:**
+
+   For each subject \( i \) in a semester \( s \):
+   
+   - Calculate percentage obtained \( P_{i} \) and rounded percentage \( R_{i} \).
+   - Determine grade point \( G_{i} \) based on the rounded percentage \( R_{i} \).
+   - Calculate \( QP_{i} = G_{i} \times CH_{i} \).
+
+4. **Data Accumulation:**
+
+   - Accumulate semester-wise data: \( SGPA_{s} \), \( CH_{s} \), \( TM_{s} \), \( OM_{s} \), \( QP_{s} \).
+   - Accumulate total data across all semesters: \( CGPA \), total credit hours, total maximum marks, total obtained marks, total quality points.
+
+5. **Display and Visualization:**
+
+   - Display tabulated results for each semester.
+   - Plot SGPA across semesters.
+   - Count the number of subjects with the same grade remarks.
+
+This breakdown outlines the mathematical representation of the GPA calculation process, involving calculations for SGPA, CGPA, subject evaluations within semesters, data accumulation, and visualization.
