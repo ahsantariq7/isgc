@@ -117,7 +117,7 @@ Grading Scale we Use For Calculation official IUB :
 
 # Pseude Code
 
-<div>
+```bash
 FUNCTION custom_round(number, decimal_places)
     factor = 10 raised to the power of decimal_places
     rounded_number = integer part of (number * factor + 0.5) divided by factor
@@ -155,4 +155,4 @@ FUNCTION calculate_gpa(semesters)
     PLOT visualizations using Matplotlib and Seaborn for SGPA and subject grade remarks
 
     RETURN cgpa rounded to 2 decimal places
-</div>
+```
