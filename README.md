@@ -113,7 +113,45 @@ Grading Scale we Use For Calculation official IUB :
         49: {'grade_point': 0.0, 'remark': 'F Fail'}
         }
 
+</div>
 
-        </code>
-    </pre>
+# Pseude Code
+<div>
+FUNCTION custom_round(number, decimal_places)
+    factor = 10 raised to the power of decimal_places
+    rounded_number = integer part of (number * factor + 0.5) divided by factor
+    RETURN rounded_number
+
+FUNCTION calculate_gpa(semesters)
+    DEFINE grading_scale as a dictionary with grade points and remarks
+
+    INITIALIZE total_grade_points, total_credit_hours, total_rounded_percentage, total_total_marks,
+               total_obtained_marks, total_quality_points, semester_gp_list, and subject_grade_remarks
+
+    INITIALIZE result_table as an empty list
+
+    FOR EACH semester, subjects IN semesters
+        INITIALIZE semester-specific variables
+
+        FOR EACH subject, details IN subjects
+            CALCULATE percentage, rounded_percentage, grade_point, remark, and quality_point
+
+            ACCUMULATE semester-specific data
+
+            ADD grade remarks for each subject across semesters to subject_grade_remarks
+
+        CALCULATE semester_gpa
+        ADD semester_gpa to semester_gp_list
+
+        ACCUMULATE total data across semesters
+
+        APPEND semester-wise data to result_table
+
+    CALCULATE cgpa based on total_grade_points and total_credit_hours
+
+    DISPLAY results in a table format using tabulate
+
+    PLOT visualizations using Matplotlib and Seaborn for SGPA and subject grade remarks
+
+    RETURN cgpa rounded to 2 decimal places
 </div>
