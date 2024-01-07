@@ -49,3 +49,5 @@
 5. print output.
 
 `print(cgpa)`
+
+![Full Code](image.png)
