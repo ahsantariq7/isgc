@@ -173,3 +173,9 @@ Certainly! Here's the algorithm described in a more mathematical form using Mark
 
 ![Alt text](image-3.png)
 
+<hr>
+
+You can calculate upto your choice of semesters and subjects format i told you.
+
+<hr>
+Feel Free to contact if you have any kind of Query.
