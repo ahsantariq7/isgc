@@ -25,6 +25,7 @@ setup(
     ],
     keywords=['GPA calculator education','Islamia University Bahawalpur', 'Ahsan Tariq','Ahsan Tariq 0724'],
     install_requires=[
+        'math',
         'matplotlib',
         'seaborn',
         'tabulate',

@@ -177,6 +177,8 @@ def calculate_gpa(semesters):
 
     plt.tight_layout()
     plt.show()
+    
+    cgpa=custom_round(cgpa, 2)
 
     return cgpa
 
