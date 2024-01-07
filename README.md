@@ -42,17 +42,6 @@
     <button onclick="copyText('semesters')">Copy</button>
 </div>
 
-<script>
-    function copyText(id) {
-        var copyText = document.getElementById(id);
-        var textArea = document.createElement('textarea');
-        textArea.textContent = copyText.textContent;
-        document.body.append(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        textArea.remove();
-    }
-</script>
 
 4. Make an Object.
 
