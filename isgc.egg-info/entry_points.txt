@@ -1,0 +1,3 @@
+[console_scripts]
+calculate_gpa = isgc.gpa_calculator.calculator:calculate_gpa
+
