@@ -9,3 +9,9 @@ isgc.egg-info/requires.txt
 isgc.egg-info/top_level.txt
 isgc/gpa_calculator/__init__.py
 isgc/gpa_calculator/calculator.py
+isgc/gpa_calculator/count_plot_remarks.py
+isgc/gpa_calculator/custom_round.py
+isgc/gpa_calculator/display_name.py
+isgc/gpa_calculator/semester_wise_sgpa_cgpa.py
+tests/__init__.py
+tests/test_calculator.py

@@ -1,13 +1,45 @@
-from custom_round import custom_round
 from tabulate import tabulate
-from semester_wise_sgpa_cgpa import semester_wise_plot
-from display_name import display_name
-from count_plot_remarks import subject_remarks
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-class IUB:
-    def __init__(self):
-        display_name
-        self.grading_scale = {
+import pyfiglet
+
+def display_name(name):
+    ascii_banner = pyfiglet.figlet_format(name)
+    print(ascii_banner)
+
+
+
+def custom_round(number, decimal_places):
+    factor = 10 ** decimal_places
+    rounded_number = int(number * factor + 0.5) / factor
+    return rounded_number
+
+
+def semester_wise_plot(a, b, c):
+    plt.subplot(1, 2, 1)
+    plt.subplot(1, 2, 1)
+    sns.lineplot(x=list(a), y=b, marker='o', label='SGPA')
+    plt.axhline(y=c, color='r', linestyle='--', label=f'CGPA: {custom_round(c, 2)}')
+    plt.title('Semester-wise GPA')
+    plt.xlabel('Semester')
+    plt.ylabel('SGPA')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
+def subject_remarks(a):
+    sns.countplot(x=sum(list(a), []))
+    plt.title('Number of Subjects with Same Grade Remarks (All Semesters)')
+    plt.xlabel('Grade Remarks')
+    plt.ylabel('Number of Subjects')
+    plt.xticks(rotation=45, ha='right')
+    plt.show()
+
+def calculate_gpa(semesters):
+    display_name("Ahsan Tariq")
+    grading_scale = {
             100: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
             99: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
             98: {'grade_point': 4.0, 'remark': 'A+ Excellent'},
@@ -62,66 +94,65 @@ class IUB:
             49: {'grade_point': 0.0, 'remark': 'F Fail'}
         }
 
-    def calculate_semester_gpa(self, semesters):
-        total_grade_points = 0
-        total_credit_hours = 0
-        total_rounded_percentage = 0
-        total_total_marks = 0
-        total_obtained_marks = 0
-        total_quality_points = 0
-        semester_gp_list = []
-        subject_grade_remarks = {subject: [] for semester in semesters.values() for subject in semester}
-        result_table = []
+    total_grade_points = 0
+    total_credit_hours = 0
+    total_rounded_percentage = 0
+    total_total_marks = 0
+    total_obtained_marks = 0
+    total_quality_points = 0
+    semester_gp_list = []
+    subject_grade_remarks = {subject: [] for semester in semesters.values() for subject in semester}
+    result_table = []
 
-        for semester, subjects in semesters.items():
-            semester_grade_points = 0
-            semester_credit_hours = 0
-            semester_rounded_percentage = 0
-            semester_total_marks = 0
-            semester_obtained_marks = 0
-            semester_quality_points = 0
+    for semester, subjects in semesters.items():
+        semester_grade_points = 0
+        semester_credit_hours = 0
+        semester_rounded_percentage = 0
+        semester_total_marks = 0
+        semester_obtained_marks = 0
+        semester_quality_points = 0
 
-            for subject, details in subjects.items():
-                credit_hours = details['credit_hours']
-                obtained_marks = details['marks']
-                max_marks = details.get('total_marks', 100)
+        for subject, details in subjects.items():
+            credit_hours = details['credit_hours']
+            obtained_marks = details['marks']
+            max_marks = details.get('total_marks', 100)
 
-                percentage = (obtained_marks / max_marks) * 100
-                rounded_percentage = custom_round(percentage,2)
+            percentage = (obtained_marks / max_marks) * 100
+            rounded_percentage = custom_round(percentage,2)
 
-                if rounded_percentage in self.grading_scale:
-                    grade_point = self.grading_scale[rounded_percentage]['grade_point']
-                    remark = self.grading_scale[rounded_percentage]['remark']
-                elif rounded_percentage < 49:
-                    grade_point = 0.0  
-                    remark = 'F Fail'
-                else:
-                    grade_point = 0.0  
-                    remark = ''
+            if rounded_percentage in grading_scale:
+                grade_point = grading_scale[rounded_percentage]['grade_point']
+                remark = grading_scale[rounded_percentage]['remark']
+            elif rounded_percentage < 49:
+                grade_point = 0.0  
+                remark = 'F Fail'
+            else:
+                grade_point = 0.0  
+                remark = ''
 
-                quality_point = (grade_point * credit_hours)
+            quality_point = (grade_point * credit_hours)
 
-                semester_grade_points += quality_point
-                semester_credit_hours += credit_hours
-                semester_rounded_percentage += rounded_percentage
-                semester_total_marks += max_marks
-                semester_obtained_marks += obtained_marks
-                semester_quality_points += quality_point
+            semester_grade_points += quality_point
+            semester_credit_hours += credit_hours
+            semester_rounded_percentage += rounded_percentage
+            semester_total_marks += max_marks
+            semester_obtained_marks += obtained_marks
+            semester_quality_points += quality_point
 
-                subject_grade_remarks[subject].append(remark)
+            subject_grade_remarks[subject].append(remark)
 
-            semester_gpa = (semester_grade_points / semester_credit_hours)
-            semester_gpa = custom_round(semester_gpa, 2)
-            semester_gp_list.append(semester_gpa)
+        semester_gpa = (semester_grade_points / semester_credit_hours)
+        semester_gpa = custom_round(semester_gpa, 2)
+        semester_gp_list.append(semester_gpa)
 
-            total_grade_points += semester_grade_points
-            total_credit_hours += semester_credit_hours
-            total_rounded_percentage += semester_rounded_percentage
-            total_total_marks += semester_total_marks
-            total_obtained_marks += semester_obtained_marks
-            total_quality_points += semester_quality_points
+        total_grade_points += semester_grade_points
+        total_credit_hours += semester_credit_hours
+        total_rounded_percentage += semester_rounded_percentage
+        total_total_marks += semester_total_marks
+        total_obtained_marks += semester_obtained_marks
+        total_quality_points += semester_quality_points
 
-            result_table.append([
+        result_table.append([
                 semester,
                 semester_gpa,
                 semester_credit_hours,
@@ -131,19 +162,19 @@ class IUB:
                 semester_quality_points
             ])
 
-        cgpa = (total_grade_points / total_credit_hours)
+    cgpa = (total_grade_points / total_credit_hours)
 
-        headers = ['Semester', 'SGPA', 'Total CH', 'Total %', 'Total TM', 'Total OM', 'Total QP']
-        print(tabulate(result_table, headers=headers, tablefmt='fancy_grid'))
+    headers = ['Semester', 'SGPA', 'Total CH', 'Total %', 'Total TM', 'Total OM', 'Total QP']
+    print(tabulate(result_table, headers=headers, tablefmt='fancy_grid'))
 
-        semester_wise_plot(semesters.keys(),semester_gp_list,cgpa)
-        subject_remarks(subject_grade_remarks.values())
+    semester_wise_plot(semesters.keys(),semester_gp_list,cgpa)
+    subject_remarks(subject_grade_remarks.values())
 
 
-        cgpa=custom_round(cgpa, 2)
-        headers = ['CGPA']
-        print('----------------------------------------------------------------------------------------')
-        print(tabulate([[cgpa]], headers=headers, tablefmt='fancy_grid'))
-        return cgpa
+    cgpa=custom_round(cgpa, 2)
+    headers = ['CGPA']
+    print('----------------------------------------------------------------------------------------')
+    print(tabulate([[cgpa]], headers=headers, tablefmt='fancy_grid'))
+    return cgpa
 
 
