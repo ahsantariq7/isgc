@@ -6,7 +6,7 @@
 
 2. import calculation_gpa
 
-`from isgc.gpa_calculator.calculator import calculate_gpa`
+`from isgc.gpa_calculator.calculator import IUB`
 
 
 3. Enter Semesters detail like that.
@@ -43,15 +43,21 @@
 
 
 4. Make an Object.
+```bash
+# Instantiate the IUB class
+iub_instance = IUB()
 
-`cgpa=calculation_gpa(semesters)`
+# Call the method on the instance
+cgpa = iub_instance.calculate_semester_gpa(semesters)
+
+```
 
 5. print output.
 
-`print(cgpa)`
+`print(f"CGPA: {cgpa}")`
 
 ```bash
-from isgc.gpa_calculator.calculator import calculate_gpa
+from isgc.gpa_calculator.calculator import IUB
 
 semesters = {
     'Semester 1': {
@@ -77,8 +83,11 @@ semesters = {
     }
 
 
-cgpa = calculate_gpa(semesters)
+# Instantiate the IUB class
+iub_instance = IUB()
 
+# Call the method on the instance
+cgpa = iub_instance.calculate_semester_gpa(semesters)
 
 print(f"CGPA: {cgpa}")
 
