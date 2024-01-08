@@ -26,7 +26,8 @@ semesters = {
         'Subject 6': {'credit_hours': 1, 'marks': 43, 'total_marks':50},
         'Subject 7': {'credit_hours': 3, 'marks': 160, 'total_marks':200},
         'Subject 8': {'credit_hours': 1, 'marks': 44, 'total_marks':50},
-    }}
+    },
+    }
 
 
 cgpa = calculate_gpa(semesters)

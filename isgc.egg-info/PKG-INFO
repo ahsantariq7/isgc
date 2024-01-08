@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: isgc
-Version: 1.0.1
+Version: 1.0.2
 Summary: A SGPA and CGPA Calculator for Islamia University Bahawalpur Graduation Students under supervision of Malik Shahzad, a Senior Developer. Also thankful for departmental support from M. Bux Alvi Sahb and Engr. Mubashir Hussain. A motivation from Muhammad Ibrar. Also very thankful to Sundas Tariq and Laiba Saleem for contributing to this project and making it usable for all IUB Graduation Students. Some friendly support from Asim Zubair and Usman Akram
 Home-page: https://github.com/ahsantariq7/isgc
 Author: Ahsan Tariq
@@ -31,7 +31,7 @@ Description-Content-Type: text/markdown
 
 2. import calculation_gpa
 
-`from isgc.gpa_calculator.calculator import IUB`
+`from isgc.gpa_calculator.calculator import calculate_gpa`
 
 
 3. Enter Semesters detail like that.
@@ -68,21 +68,15 @@ Description-Content-Type: text/markdown
 
 
 4. Make an Object.
-```bash
-# Instantiate the IUB class
-iub_instance = IUB()
 
-# Call the method on the instance
-cgpa = iub_instance.calculate_semester_gpa(semesters)
-
-```
+`cgpa=calculation_gpa(semesters)`
 
 5. print output.
 
-`print(f"CGPA: {cgpa}")`
+`print(cgpa)`
 
 ```bash
-from isgc.gpa_calculator.calculator import IUB
+from isgc.gpa_calculator.calculator import calculate_gpa
 
 semesters = {
     'Semester 1': {
@@ -108,11 +102,8 @@ semesters = {
     }
 
 
-# Instantiate the IUB class
-iub_instance = IUB()
+cgpa = calculate_gpa(semesters)
 
-# Call the method on the instance
-cgpa = iub_instance.calculate_semester_gpa(semesters)
 
 print(f"CGPA: {cgpa}")
 
