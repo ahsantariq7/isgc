@@ -23,7 +23,7 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
     ],
-    keywords=['GPA calculator education','Islamia University Bahawalpur', 'Ahsan Tariq','Ahsan Tariq 0724'],
+    keywords=['isgc, ISGC, GPA calculator education','Islamia University Bahawalpur', 'Ahsan Tariq','Ahsan Tariq 0724'],
     install_requires=[
         'matplotlib',
         'seaborn',
